@@ -41,18 +41,29 @@ export default function Home() {
   }, 0)
 
   // ✅ FUNÇÃO PIX DEPOIS DO TOTAL
-  async function pagarPix() {
-    const response = await fetch('/api/pix', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ total }),
-    })
+async function pagarPix() {
+  const response = await fetch('/api/pix', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ total }),
+  })
 
-    const data = await response.json()
-    alert(`API respondeu: ${data.mensagem}\nTotal: R$ ${data.totalRecebido}`)
+  const data = await response.json()
+
+  if (data.error) {
+    alert('Erro no PIX: ' + data.error)
+    return
   }
+
+  alert(
+    `PIX GERADO COM SUCESSO 🙏\n\n` +
+    `Valor: R$ ${data.total.toFixed(2)}\n\n` +
+    `Código:\n${data.copiaECola}`
+  )
+}
+
 
   function pagarCartao() {
     alert('Pagamento com cartão em breve 💳')
