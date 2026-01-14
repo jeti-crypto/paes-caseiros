@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
   if (!total || total <= 0) return NextResponse.json({ error:'Valor inválido' }, { status:400 })
 
   // 🔐 CONFIGURE SUA CHAVE PIX REAL AQUI
-  const chavePix = 'SUA_CHAVE_PIX_AQUI'
+  const chavePix = process.env.PIX_CHAVE!
     function limparTexto(texto: string, max: number) {
   return texto
     .normalize('NFD')

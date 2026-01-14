@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import mercadopago from 'mercadopago'
 
-mercadopago.configurations.setAccessToken('SEU_ACCESS_TOKEN_MERCADOPAGO')
+mercadopago.configurations.setAccessToken(process.env.MERCADOPAGO_ACCESS_TOKEN!)
 
 export async function POST(req: NextRequest) {
   const { total } = await req.json()
