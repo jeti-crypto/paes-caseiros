@@ -37,13 +37,14 @@ export async function POST(req: Request) {
     const result = await preference.create({
       body: {
         items: [
-          {
-            title: 'Compra de Pães Caseiros',
-            quantity: 1,
-            currency_id: 'BRL',
-            unit_price: Number(total),
-          },
-        ],
+  {
+    id: 'paes-caseiros',
+    title: 'Compra de Pães Caseiros',
+    quantity: 1,
+    currency_id: 'BRL',
+    unit_price: Number(total),
+  },
+],
         back_urls: {
           success: `${baseUrl}/sucesso`,
           failure: `${baseUrl}/erro`,
