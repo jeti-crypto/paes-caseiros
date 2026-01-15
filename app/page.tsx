@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import { easeOut } from 'framer-motion'
 import { useState } from 'react'
 import { QRCodeCanvas } from 'qrcode.react'
 import { FaBreadSlice, FaCookieBite, FaStar } from 'react-icons/fa'
@@ -38,7 +39,18 @@ export default function Home() {
     'Fatia Húngara': 0,
   })
 
-  const cardVariants = { hidden: { opacity: 0, y: 30 }, visible: (i: number) => ({ opacity: 1, y: 0, transition: { delay: i * 0.1, duration: 0.5, ease: 'easeOut' } }) }
+  const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.1,
+      duration: 0.4,
+      ease: easeOut,
+    },
+  }),
+}
 
   function diminuir(item: string) {
     setQuantidades(prev => ({ ...prev, [item]: Math.max(0, prev[item] - 1) }))
