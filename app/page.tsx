@@ -1,5 +1,6 @@
 'use client'
 
+import React from 'react'
 import { useState } from 'react'
 import { QRCodeCanvas } from 'qrcode.react'
 import { FaBreadSlice, FaCookieBite, FaStar } from 'react-icons/fa'
@@ -16,7 +17,7 @@ const precos: Record<string, number> = {
 }
 
 // Ícones para cada produto
-const icones: Record<string, JSX.Element> = {
+const icones: Record<string, React.ReactNode> = {
   'Pão Grande': <FaBreadSlice className='w-6 h-6 text-yellow-700 dark:text-yellow-400'/>,
   'Pão c/ Cinco Fatias': <FaBreadSlice className='w-6 h-6 text-yellow-700 dark:text-yellow-400'/>,
   'Rosca Tradicional': <FaCookieBite className='w-6 h-6 text-yellow-600 dark:text-yellow-300'/>,
